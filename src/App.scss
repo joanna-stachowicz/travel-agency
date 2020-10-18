@@ -3,8 +3,27 @@
 
   > :first-child ~ * {
     position: absolute;
-    top: 200px;
+    top: 0;
     left: 0;
     width: 100%;
+    animation: animation 0.8s infinite linear;
+  }
+}
+
+@keyframes animation {
+  0% {
+    top: 200px;
+  }
+  25% {
+    top: 150px;
+  }
+  50% {
+    top: 100px;
+  }
+  75% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
   }
 }

@@ -58,22 +58,21 @@ export default function reducer(statePart = [], action = {}) {
       }
       break;
 
-    case ADD_TAG: {
-      let newState = {
+    case ADD_TAG:
+      return {
         ...statePart,
+        option: {
+          ...statePart.tags.push(action.payload),
+        },
       };
-      newState.tags.push(action.payload);
-      return newState;
-    }
 
-    case REMOVE_TAG: {
-      let anotherState = {
+    case REMOVE_TAG:
+      return {
         ...statePart,
+        option: {
+          ...statePart.tags.splice(statePart.tags.indexOf(action.payload), 1),
+        },
       };
-      let index = anotherState.tags.indexOf(action.payload);
-      anotherState.tags.splice(index, 1);
-      return anotherState;
-    }
 
     default:
       return statePart;
