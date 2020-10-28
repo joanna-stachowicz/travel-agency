@@ -6,7 +6,7 @@ import styles from './OrderOption.scss';
 import { formatPrice } from '../../../utils/formatPrice';
 
 const OrderOptionNumber = ({ currentValue, limits, tripCost, price, setOptionValue }) => {
-  const tripCostValue = Number(tripCost.replace(/[^0-9.-]+/g, ''));
+  const tripCostValue = tripCost ? Number(tripCost.replace(/[^0-9.-]+/g, '')) : 0;
   const currentValueNumber = parseFloat(currentValue);
   const priceNumber = parseFloat(price) / parseFloat(100);
   return (
@@ -28,8 +28,8 @@ const OrderOptionNumber = ({ currentValue, limits, tripCost, price, setOptionVal
 OrderOptionNumber.propTypes = {
   limits: PropTypes.object,
   tripCost: PropTypes.string,
-  price: PropTypes.number,
-  currentValue: PropTypes.string,
+  price: PropTypes.string,
+  currentValue: PropTypes.number,
   setOptionValue: PropTypes.func,
 };
 
