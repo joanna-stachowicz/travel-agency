@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './HappyHourAd.scss';
 
+import { formatTime } from '../../../utils/formatTime';
+
 
 class HappyHourAd extends React.Component {
   static propTypes = {
@@ -29,6 +31,8 @@ class HappyHourAd extends React.Component {
     let countdownTime = this.getCountdownTime();
     if (countdownTime > 60 * 60 * 23) {
       countdownTime = this.props.promoDescription;
+    } else {
+      countdownTime = formatTime(countdownTime);
     }
     return (
       <div className={styles.component}>
