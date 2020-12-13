@@ -1,7 +1,5 @@
 export const formatTime = (arg) => {
-  if (arg === undefined) {
-    return null;
-  }
+
   if (typeof (arg) !== 'number') {
     return null;
   }
